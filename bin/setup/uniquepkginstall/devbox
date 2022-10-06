@@ -1,0 +1,11 @@
+sh <(curl -L https://nixos.org/nix/install) --daemon
+
+paru -S --needed devbox
+
+# sudo systemctl stop nix-daemon.service
+
+# sudo systemctl start nix-daemon.socket
+# sudo systemctl start nix-daemon.service
+
+# sudo ln -sfn /nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.service /etc/systemd/system/nix-daemon.service
+# sudo ln -sfn /nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.socket /etc/systemd/system/nix-daemon.socket

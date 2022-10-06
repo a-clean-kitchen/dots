@@ -1,0 +1,47 @@
+#!/bin/sh
+## Serves the purpose of keeping track of used packages
+## as well as installing them
+
+## This script is meant to be run as root
+
+### VARIABLES ###
+
+packages=(
+    'aur/river',
+    'polkit',
+    'xorg-xwayland',
+    'xorg-xlsclients',
+    'qt5-wayland',
+    'glfw-wayland',
+    'xorg-xinit',
+    'docker',
+    'git',
+    'emacs',
+    'neovim',
+    'polybar',
+    'st',
+    'rofi',
+    'dunst',
+    'feh'
+)
+
+### Install yay for AUR's ###
+install_paru() {
+    echo "Installing yay"
+    sudo pacman -S --needed base-devel
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si
+    cd ..
+    rm -rf paru
+}
+
+### Install packages ###
+install_packages() {
+    echo "Installing packages"
+    echo ${packages[@]}
+    paru -S --needed ${packages[@]//,/}
+}
+
+install_paru
+install_packages
