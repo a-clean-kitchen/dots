@@ -1,17 +1,9 @@
 #!/bin/sh
 
-# This is the example configuration file for river.
-#
-# If you wish to edit this, you will probably want to copy it to
-# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
-#
-# See the river(1), riverctl(1), and rivertile(1) man pages for complete
-# documentation.
 
-# Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
-
+swaybg -m fill -i ~/.config/wallpapers/4000_1460_subway.jpg &
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal Super+Shift Return spawn st
+riverctl map normal Super+Shift Return spawn foot
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
@@ -153,6 +145,8 @@ riverctl float-filter-add title "popup title with spaces"
 
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
+
+riverctl spawn "~/.config/polybar/launch"
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.

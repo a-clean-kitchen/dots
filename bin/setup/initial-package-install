@@ -14,12 +14,12 @@ packages=(
     'qt5-wayland',
     'glfw-wayland',
     'xorg-xinit',
+    "foot",
     'docker',
     'git',
     'emacs',
     'neovim',
     'polybar',
-    'st',
     'rofi',
     'dunst',
     'feh'

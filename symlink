@@ -20,6 +20,10 @@ _vimlink () {
     ln -snf ~/.config/nvim/init.vim ~/.vimrc
 }
 
+_dimlink () {
+    ln -sfn "$cwd/.doom.d" ~/.doom.d
+}
+
 ## symlink all the files in the .config directory
 for file in $config_dir; do
     _symlink "$file"
@@ -32,3 +36,6 @@ done
 
 ## symlink the vimrc file
 _vimlink
+
+## symlink Doom Emacs Config Directory
+_dimlink

@@ -20,11 +20,15 @@ fi
 
 clone() {
      echo "cloning into wksp directory"
-     git clone https://github.com/a-clean-kitchen/.dotfiles.git $HOME/wksp/.dotfiles
+     echo "cloning dots"
+     git clone https://github.com/a-clean-kitchen/.dots.git $HOME/wksp/dots
+     
+     echo "cloning scripts"
+     git clone https://github.com/a-clean-kitchen/scripts.git $HOME/wksp/scripts
 }
 
 backup() {
-     cd $HOME/wksp/.dotfiles/.config
+     cd $HOME/wksp/dots/.config
      echo "Backing up files to $HOME/$backup_dir/"
      for file in *; do
           if [ -d "$XDG_CONFIG_HOME/$file" ]; then
@@ -32,7 +36,7 @@ backup() {
           fi
      done
 
-     cd $HOME/wksp/.dotfiles/zsh
+     cd $HOME/wksp/dots/zsh
      mkdir -p "$HOME/$backup_dir/zsh/"
      echo "Backing up zsh config to $HOME/$backup_dir/zsh/"
      for file in .z*; do
@@ -40,14 +44,15 @@ backup() {
                mv "$ZDOTDIR/$file" "$HOME/$backup_dir/zsh/" 2>/dev/null
           fi
      done
-
-     # TODO: backup X-configs once you make em'
 }
 
 symlink() {
-     cd $HOME/wksp/.dotfiles
+     cd $HOME/wksp/dots
      echo "Symlinking files to $XDG_CONFIG_HOME"
      . symlink
+     cd ..
+     mkdir -p $HOME/.local 2>&1
+     ln -sfn scripts/ $HOME/.local/scripts
      echo "All files linked successfully! :)"
 }
 
