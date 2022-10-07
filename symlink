@@ -1,0 +1,34 @@
+#!/bin/bash
+## This script finds all the contents of a directory and symlinks them to the home directory
+
+cwd="$PWD"
+
+## find all the files in the .config directory but don't include the .config directory
+config_dir=$(find .config -maxdepth 1 -mindepth 1)
+## find all the files in the zsh directory except for . and ..
+zsh_dir=$(ls -a zsh | grep -vE '^\.$|^\.\.$')
+
+_symlink () {
+    ln -sfn "$cwd/$1" "$HOME/$1"
+}
+
+_zymlink () {
+    ln -sfn "$cwd/zsh/$1" "$HOME/$1"
+}
+
+_vimlink () {
+    ln -snf ~/.config/nvim/init.vim ~/.vimrc
+}
+
+## symlink all the files in the .config directory
+for file in $config_dir; do
+    _symlink "$file"
+done
+
+## symlink all the files in the zsh directory
+for file in $zsh_dir; do
+    _zymlink "$file"
+done
+
+## symlink the vimrc file
+_vimlink
