@@ -7,22 +7,22 @@
 ### VARIABLES ###
 
 packages=(
-    'aur/river',
+    'xorg-xwayland', 'xorg-xlsclients', 'xorg-xinit',
     'polkit',
-    'xorg-xwayland',
-    'xorg-xlsclients',
-    'qt5-wayland',
-    'glfw-wayland',
-    'xorg-xinit',
-    "foot",
+    'qt5-wayland', 'glfw-wayland',
     'docker',
-    'git',
-    'emacs',
-    'neovim',
-    'polybar',
-    'rofi',
-    'dunst',
-    'feh'
+    'foot', 'git', 'emacs',
+    'neovim', 'tldr',
+    'waybar-hyprland-git',
+    'rofi', 'dunst',
+    'hyprland', 'hyprpaper',
+    'ly', 'qutebrowser',
+    'nerd-fonts-complete',
+    'scientifica-font',
+    'terminus-font-ttf',
+    'pulseaudio',
+    'tmux',
+    'wlroots'
 )
 
 ### Install yay for AUR's ###
