@@ -1,12 +1,12 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar at the bottom of your screen
-    "height": 24, // Waybar height
-    // "width": 1366, // Waybar width
-    // Choose the order of the modules
-    "modules-left": ["wlr/workspaces"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
+    "layer": "top", 
+    "position": "top", 
+    "height": 25,
+    "modules-left": ["hyprland/window"],
+    "modules-right": ["wlr/workspaces", "pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
+    "hyprland/window": {
+        "format": "{}"
+    },
     "wlr/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -17,16 +17,16 @@
             "5:music": "",
             "6:docs": "",
             "urgent": "",
-            "focused": "",
+            "active": "",
             "default": ""
         }
     },
-    },
     "tray": {
-        "spacing": 10
+        "spacing": 15
     },
-    "clock": {
-        "format-alt": "{:%Y-%m-%d}"
+	"clock": {
+        "format": "{:%H:%M} ",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
         "format": "{usage}% "
@@ -35,25 +35,26 @@
         "format": "{}% "
     },
     "battery": {
-        "bat": "BAT0",
+        "bat": "BAT1",
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄{capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-full": "󱈑 {capacity}%",
         "format": "{capacity}% {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
         "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
-        //"scroll-step": 1,
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-muted": "",

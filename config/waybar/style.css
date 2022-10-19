@@ -1,101 +1,83 @@
 * {
-    border: none;
+    border: None;
     border-radius: 0;
-    font-family: "Ubuntu Nerd Font";
-    font-size: 13px;
+    font-family: "Scientifica";
+    font-size: 16px;
     min-height: 0;
+    color: #729a9c;
 }
 
 window#waybar {
     background: transparent;
-    color: white;
 }
 
-#window {
-    font-weight: bold;
-    font-family: "Ubuntu";
-}
-/*
-#workspaces {
-    padding: 0 5px;
-}
-*/
+tooltip {
+	background: #e9e5d5;
+	border-radius: 15px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #262626;
+	}
 
 #workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: white;
-    border-top: 2px solid transparent;
+    padding: 5px 10px;
+    color: #f0f0f0;
 }
 
 #workspaces button.focused {
-    color: #c9545d;
-    border-top: 2px solid #c9545d;
+    color: #0f0f0f;
+    background-color: #c49ec4;
+    border-radius: 15px;
 }
 
-#mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
+#workspaces button.urgent {
+    color: #0f0f0f;
+    background-color: #9ec3c4;
+    border-radius: 15px;
 }
 
-#clock, #battery, #cpu, #memory, #network,  #tray, #mode {
-    padding: 0 3px;
-    margin: 0 2px;
+#workspaces button:hover {
+	background-color: #c49ec4;
+	color: #0f0f0f;
+	border-radius: 15px;
+}
+
+#window, #cpu, #memory, #clock, #battery, #pulseaudio, #network, #workspaces {
+	background-color: #ffffff;
+	padding: 5px 15px;
+	margin: 10px 5px 0px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 10px -2px inset,
+                rgba(0, 0, 0, 0.3) 0px 3px 6px -3px inset;
+	border-radius: 15px 15px 15px 15px;
+}
+
+.horizontal.modules-right {
+    border-color: red;
+}
+
+
+#window {
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 10px;
 }
 
 #clock {
-    font-weight: bold;
-}
-
-#battery {
-}
-
-#battery icon {
-    color: red;
-}
-
-#battery.charging {
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
-}
-
-#battery.warning:not(.charging) {
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#cpu {
+	margin-right: 10px;
 }
 
 #memory {
+    padding-right: 20px;
 }
 
-#network {
+#battery {
+    padding-right: 25px;
 }
 
-#network.disconnected {
-    background: #f53c3c;
+#battery.charging {
+    color: #9ec49f;
 }
 
-#pulseaudio {
+#battery.warning:not(.charging) {
+    background-color: #c49ea0;
+    color: #0f0f0f;
 }
-
-#pulseaudio.muted {
-}
-
-#custom-spotify {
-    color: rgb(102, 220, 105);
-}
-
-#tray {
-}
-
