@@ -11,7 +11,7 @@ packages=(
     'polkit', 'ripgrep',
     'qt5-wayland', 'glfw-wayland',
     'docker', 'nvm', "onefetch",
-    'foot', 'git', 'emacs',
+    'foot', 'git', 'visual-studio-code-bin',
     'neovim', 'tldr',
     'waybar-hyprland-git',
     'rofi', 'dunst', 'rofi-emoji', 'rofi-calc',
