@@ -1,20 +1,8 @@
-#
-#  Sway configuration
-#
-#  flake.nix
-#   ├─ ./hosts
-#   │   └─ ./laptop
-#   │       └─ default.nix
-#   └─ ./modules
-#       └─ ./desktop
-#           └─ ./hyprland
-#               └─ default.nix *
-#
 
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ../../programs/waybar.nix ];
+  imports = [ ../waybar ];
 
   hardware.opengl.enable = true;
 
@@ -23,13 +11,10 @@
       if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
         exec Hyprland
       fi
-    '';                                   # Will automatically open sway when logged into tty1
-    variables = {
-      #LIBCL_ALWAYS_SOFTWARE = "1";       # For applications in VM like alacritty to work
-      #WLR_NO_HARDWARE_CURSORS = "1";     # For cursor in VM
-    };
+    '';                                   # Will automatically open Hyprland when logged into tty1
     systemPackages = with pkgs; [
       xdg-desktop-portal-wlr
+      polkit_gnome
     ];
   };
 
